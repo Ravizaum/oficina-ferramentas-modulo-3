@@ -16,7 +16,7 @@ class FreteCorrespondenciaPlugin:
         "BA": 40.00,
     }
     FRETE_PADRAO = 50.00
-    ISENCAO_ACIMA_DE = 5_000.00   # frete grátis para faturas acima desse valor
+    ISENCAO_ACIMA_DE = 50_000.00   # frete grátis para faturas acima desse valor
 
     def processar(self, fatura: Fatura, resultado: ResultadoEmissao) -> ResultadoEmissao:
         if resultado.valor_bruto >= self.ISENCAO_ACIMA_DE:

@@ -7,7 +7,7 @@ Contém: Value Objects (CPF, Horario), Entidades (Medico, Paciente, Consulta),
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 
@@ -36,9 +36,14 @@ class Horario:
         if self.fim <= self.inicio:
             raise ValueError("Horário de fim deve ser posterior ao de início.")
 
+    BUFFER_MINUTOS = 60
+
     def conflita_com(self, outro: Horario) -> bool:
-        """Retorna True se os dois horários se sobrepõem."""
-        return self.inicio < outro.fim and self.fim > outro.inicio
+        """Retorna True se os dois horários se sobrepõem, considerando um
+        intervalo mínimo obrigatório de BUFFER_MINUTOS entre consultas
+        consecutivas do mesmo médico (tempo de preparação/higienização)."""
+        buffer = timedelta(minutes=self.BUFFER_MINUTOS)
+        return self.inicio < (outro.fim + buffer) and (self.fim + buffer) > outro.inicio
 
     def __str__(self) -> str:
         return f"{self.inicio.strftime('%H:%M')}–{self.fim.strftime('%H:%M')}"
