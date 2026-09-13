@@ -1,0 +1,23 @@
+=== docker compose ps ===
+NAME                       IMAGE                    COMMAND                  SERVICE            CREATED          STATUS                    PORTS
+infra-db_elegibilidade-1   infra-db_elegibilidade   "docker-entrypoint.s…"   db_elegibilidade   16 seconds ago   Up 15 seconds (healthy)   5432/tcp
+infra-db_exames-1          infra-db_exames          "docker-entrypoint.s…"   db_exames          16 seconds ago   Up 15 seconds (healthy)   5432/tcp
+infra-elegibilidade-1      infra-elegibilidade      "python -m uvicorn h…"   elegibilidade      15 seconds ago   Up 12 seconds (healthy)   0.0.0.0:18001->8000/tcp, [::]:18001->8000/tcp
+infra-exames-1             infra-exames             "python -m uvicorn h…"   exames             15 seconds ago   Up 10 seconds (healthy)   0.0.0.0:18002->8000/tcp, [::]:18002->8000/tcp
+
+=== GET /health elegibilidade ===
+HTTP/1.1 200 OK
+date: Sun, 13 Sep 2026 00:08:13 GMT
+server: uvicorn
+content-length: 41
+content-type: application/json
+
+{"status":"ok","servico":"elegibilidade"}
+=== GET /health exames ===
+HTTP/1.1 200 OK
+date: Sun, 13 Sep 2026 00:08:12 GMT
+server: uvicorn
+content-length: 34
+content-type: application/json
+
+{"status":"ok","servico":"exames"}

@@ -1,0 +1,4 @@
+=== docker compose down -v ===
+
+=== docker compose ps -a (apos limpeza) ===
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS

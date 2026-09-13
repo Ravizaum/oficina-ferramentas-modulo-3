@@ -1,0 +1,8 @@
+=== config --quiet ===
+OK: sem erros
+
+=== config --services ===
+db_exames
+db_elegibilidade
+elegibilidade
+exames

@@ -1,0 +1,8 @@
+=== POST /exames com elegibilidade fora do ar ===
+HTTP/1.1 503 Service Unavailable
+date: Sun, 13 Sep 2026 00:08:32 GMT
+server: uvicorn
+content-length: 48
+content-type: application/json
+
+{"detail":{"codigo":"dependencia_indisponivel"}}

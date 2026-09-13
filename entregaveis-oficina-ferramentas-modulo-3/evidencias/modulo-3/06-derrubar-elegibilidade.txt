@@ -1,0 +1,7 @@
+=== docker compose stop elegibilidade ===
+
+=== docker compose ps (apos stop) ===
+NAME                       IMAGE                    COMMAND                  SERVICE            CREATED          STATUS                    PORTS
+infra-db_elegibilidade-1   infra-db_elegibilidade   "docker-entrypoint.s…"   db_elegibilidade   30 seconds ago   Up 29 seconds (healthy)   5432/tcp
+infra-db_exames-1          infra-db_exames          "docker-entrypoint.s…"   db_exames          30 seconds ago   Up 28 seconds (healthy)   5432/tcp
+infra-exames-1             infra-exames             "python -m uvicorn h…"   exames             29 seconds ago   Up 23 seconds (healthy)   0.0.0.0:18002->8000/tcp, [::]:18002->8000/tcp
